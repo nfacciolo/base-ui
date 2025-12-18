@@ -1,0 +1,18 @@
+{
+    "name": "reactic/symfony-base-ui",
+    "description": "A headless component library for Symfony and Twig, built on Base UI principles. This library provides unstyled, accessible UI components that give you complete control over styling while handling complex functionality, state management, and accessibility out of the box. Perfect for building custom design systems without fighting against opinionated styles.",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Reactic\\SymfonyBaseUi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nicolas Facciolo",
+            "email": "nicolas@reactic.io"
+        }
+    ],
+    "require": {}
+}
