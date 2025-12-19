@@ -12,6 +12,8 @@ class Button
     public bool $disabled = false;
     public bool $focusableWhenDisabled = false;
     public string $tag = 'button';
+    public string $label = 'click me';
+    public string $type = 'button';
 
     /**
      * Get ARIA attributes for accessibility
@@ -71,6 +73,10 @@ class Button
      */
     public function getType(): ?string
     {
+        if ($this->type !== null) {
+            return $this->type;
+        }
+
         return $this->tag === 'button' ? 'button' : null;
     }
 }
