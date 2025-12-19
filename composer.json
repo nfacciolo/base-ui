@@ -14,5 +14,8 @@
             "email": "nicolas@reactic.io"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/ux-twig-component": "^2.31",
+        "symfony/twig-bundle": "^7.4"
+    }
 }

@@ -1,0 +1,14 @@
+<{{ this.tag }}
+    {% for attr, value in this.ariaAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% if this.shouldUseNativeDisabled %}
+        disabled
+    {% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</{{ this.tag }}>
