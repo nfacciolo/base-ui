@@ -2,7 +2,7 @@
 [data-component="separator"] {
   box-sizing: border-box;
   border: none;
-  background-color: var(--color-gray-200);
+  background-color: var(--color-gray-800);
   flex-shrink: 0;
 }
 

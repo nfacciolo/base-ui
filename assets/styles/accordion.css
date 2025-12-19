@@ -2,47 +2,43 @@
   --color-blue: oklch(45% 50% 264deg);
   --color-red: oklch(50% 55% 31deg);
 
-  --color-bg: oklch(1 0 89.876);
-  --color-gray-50: oklch(98% 0.25% 264deg);
-  --color-gray-100: oklch(12% 9.5% 264deg / 5%);
-  --color-gray-200: oklch(12% 9% 264deg / 7%);
-  --color-gray-300: oklch(12% 8.5% 264deg / 17%);
-  --color-gray-400: oklch(12% 8% 264deg / 38%);
-  --color-gray-500: oklch(12% 7.5% 264deg / 50%);
-  --color-gray-600: oklch(12% 7% 264deg / 67%);
-  --color-gray-700: oklch(12% 6% 264deg / 77%);
-  --color-gray-800: oklch(12% 5% 264deg / 85%);
-  --color-gray-900: oklch(0.761 0.046 278.248 / 0.9);
-  --color-gray-950: oklch(12% 5% 264deg / 95%);
 
-  @media (prefers-color-scheme: dark) {
-    --color-blue: oklch(69% 50% 264deg);
-    --color-red: oklch(80% 55% 31deg);
+    --color-gray-50: oklch(98% 0.25% 264deg);
+    --color-gray-100: oklch(12% 9.5% 264deg / 5%);
+    --color-gray-200: oklch(12% 9% 264deg / 7%);
+    --color-gray-300: oklch(12% 8.5% 264deg / 17%);
+    --color-gray-400: oklch(12% 8% 264deg / 38%);
+    --color-gray-500: oklch(12% 7.5% 264deg / 50%);
+    --color-gray-600: oklch(12% 7% 264deg / 67%);
+    --color-gray-700: oklch(12% 6% 264deg / 77%);
+    --color-gray-800: oklch(12% 5% 264deg / 85%);
+    --color-gray-900: oklch(12% 5% 264deg / 90%);
+    --color-gray-950: oklch(12% 5% 264deg / 95%);
 
-    --color-bg: oklch(0.15 0 89.876);
-    --color-gray-50: oklch(0.281 0 89.876);
-    --color-gray-100: oklch(28% 0.75% 264deg / 65%);
-    --color-gray-200: oklch(29% 0.75% 264deg / 80%);
-    --color-gray-300: oklch(35% 0.75% 264deg / 80%);
-    --color-gray-400: oklch(47% 0.875% 264deg / 80%);
-    --color-gray-500: oklch(64% 1% 264deg / 80%);
-    --color-gray-600: oklch(82% 1% 264deg / 80%);
-    --color-gray-700: oklch(92% 1.125% 264deg / 80%);
-    --color-gray-800: oklch(93% 0.875% 264deg / 85%);
-    --color-gray-900: oklch(95% 0.5% 264deg / 90%);
-    --color-gray-950: oklch(94% 0.375% 264deg / 95%);
-  }
+  /*@media (prefers-color-scheme: dark) {*/
+  /*    --color-blue: oklch(69% 50% 264deg);*/
+  /*    --color-red: oklch(80% 55% 31deg);*/
+
+  /*    --color-gray-50: oklch(17% 0.25% 264deg);*/
+  /*    --color-gray-100: oklch(28% 0.75% 264deg / 65%);*/
+  /*    --color-gray-200: oklch(29% 0.75% 264deg / 80%);*/
+  /*    --color-gray-300: oklch(35% 0.75% 264deg / 80%);*/
+  /*    --color-gray-400: oklch(47% 0.875% 264deg / 80%);*/
+  /*    --color-gray-500: oklch(64% 1% 264deg / 80%);*/
+  /*    --color-gray-600: oklch(82% 1% 264deg / 80%);*/
+  /*    --color-gray-700: oklch(92% 1.125% 264deg / 80%);*/
+  /*    --color-gray-800: oklch(93% 0.875% 264deg / 85%);*/
+  /*    --color-gray-900: oklch(95% 0.5% 264deg / 90%);*/
+  /*    --color-gray-950: oklch(94% 0.375% 264deg / 95%);*/
+  /*}*/
 }
 
 /* Accordion Root */
 [data-component="accordion"] {
   box-sizing: border-box;
   display: flex;
-  width: 24rem;
-  max-width: calc(100vw - 8rem);
   flex-direction: column;
   justify-content: center;
-  color: var(--color-gray-900);
 }
 
 /* Accordion Item */
@@ -57,36 +53,48 @@
 
 /* Accordion Trigger */
 [data-slot="accordion-trigger"] {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  width: 100%;
-  gap: 1rem;
-  align-items: baseline;
-  justify-content: space-between;
-  padding-block: 0.5rem;
-  padding-inline: 0.75rem 0.25rem;
-  color: var(--color-gray-900);
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  background: var(--color-gray-50);
-  border: none;
-  outline: none;
-  text-align: left;
-  cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    width: 100%;
+    gap: 1rem;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem 0.25rem;
+    color: var(--color-gray-900);
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    background: var(--color-gray-50);
+    border: none;
+    outline: none;
+    text-align: left;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--color-gray-100);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-blue);
+        z-index: 1;
+    }
 }
 
-@media (hover: hover) {
-  [data-slot="accordion-trigger"]:hover {
-    background-color: var(--color-gray-100);
-  }
-}
+[data-slot="accordion-icon"] {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-right: 0.5rem;
+    transition: transform 150ms ease-out;
 
-[data-slot="accordion-trigger"]:focus-visible {
-  outline: 2px solid var(--color-blue);
-  z-index: 1;
+    [data-panel-open] > & {
+        transform: rotate(45deg) scale(1.1);
+    }
 }
 
 [data-slot="accordion-trigger"][data-disabled="true"] {
@@ -103,7 +111,11 @@
     font-size: 1rem;
     line-height: 1.5rem;
     transition: height 150ms ease-out;
-    background-color: var(--color-bg);
+
+    &[data-starting-style],
+    &[data-ending-style] {
+        height: 0;
+    }
 }
 
 /* Closed panel */

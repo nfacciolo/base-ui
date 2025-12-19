@@ -64,4 +64,13 @@ class Button
     {
         return $this->tag;
     }
+
+    /**
+     * Get the button type attribute
+     * Returns 'button' by default to prevent form submission
+     */
+    public function getType(): ?string
+    {
+        return $this->tag === 'button' ? 'button' : null;
+    }
 }

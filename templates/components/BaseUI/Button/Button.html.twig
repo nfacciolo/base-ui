@@ -1,4 +1,7 @@
 <{{ this.tag }}
+    {% if this.type %}
+        type="{{ this.type }}"
+    {% endif %}
     {% for attr, value in this.ariaAttributes %}
         {{ attr }}="{{ value }}"
     {% endfor %}
