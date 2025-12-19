@@ -1,0 +1,12 @@
+<button
+    type="button"
+    {% for attr, value in this.ariaAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</button>

@@ -1,0 +1,8 @@
+<div
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</div>

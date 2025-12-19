@@ -16,6 +16,20 @@
     ],
     "require": {
         "symfony/ux-twig-component": "^2.31",
-        "symfony/twig-bundle": "^7.4"
+        "symfony/twig-bundle": "^7.4",
+        "symfony/stimulus-bundle": "^2.0"
+    },
+    "extra": {
+        "symfony": {
+            "controllers": {
+                "baseui--accordion": {
+                    "main": "assets/controllers/accordion_controller.js",
+                    "name": "baseui--accordion",
+                    "webpackMode": "eager",
+                    "fetch": "eager",
+                    "enabled": true
+                }
+            }
+        }
     }
 }

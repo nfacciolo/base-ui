@@ -1,0 +1,13 @@
+{
+    "controllers": {
+        "@reactic/symfony-base-ui": {
+            "accordion": {
+                "main": "controllers/accordion_controller.js",
+                "webpackMode": "eager",
+                "fetch": "eager",
+                "enabled": true
+            }
+        }
+    },
+    "entrypoints": []
+}

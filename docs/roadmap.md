@@ -21,7 +21,7 @@ Interactive button that can be rendered as different tags and focusable when dis
 - ARIA attributes and data attributes for styling
 
 **Status:** ✅ Implemented
-**Doc:** [button.md](./button.md)
+**Doc:** [Button.md](./Button.md)
 
 ---
 
