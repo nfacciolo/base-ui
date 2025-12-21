@@ -125,7 +125,25 @@ If you haven't already set them up in your project, please refer to the official
 - **Symfony UX Twig Component**: https://symfony.com/bundles/ux-twig-component/current/index.html
 - **Symfony Stimulus Bundle**: https://symfony.com/bundles/StimulusBundle/current/index.html
 
-Once configured, the Accordion controller will be automatically registered via the bundle's `controllers.json`.
+### 7. Register Stimulus controllers
+
+Add the Accordion controller to your `assets/controllers.json` (or `assets/admin/controllers.json` for admin-only):
+
+```json
+{
+  "controllers": {
+    "@reactic/base-ui": {
+      "accordion": {
+        "enabled": true,
+        "fetch": "eager",
+        "webpackMode": "eager"
+      }
+    }
+  }
+}
+```
+
+This registers the Accordion's Stimulus controller for interactive functionality.
 
 ## Configuration
 
