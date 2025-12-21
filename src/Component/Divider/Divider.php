@@ -1,6 +1,6 @@
 <?php
 
-namespace Reactic\SymfonyBaseUi\Component\Divider;
+namespace Reactic\BaseUi\Component\Divider;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 

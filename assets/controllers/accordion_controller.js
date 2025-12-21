@@ -22,7 +22,7 @@ export default class extends Controller {
 
     toggle(event) {
         const trigger = event.currentTarget;
-        const item = trigger.closest('[data-reactic--symfony-base-ui--accordion-target="item"]');
+        const item = trigger.closest('[data-reactic--base-ui--accordion-target="item"]');
         const value = item.dataset.value;
         const isDisabled = item.dataset.disabled === 'true';
 
@@ -83,8 +83,8 @@ export default class extends Controller {
         this.itemTargets.forEach(item => {
             const value = item.dataset.value;
             const isOpen = this.openItems.has(value);
-            const trigger = item.querySelector('[data-reactic--symfony-base-ui--accordion-target="trigger"]');
-            const panel = item.querySelector('[data-reactic--symfony-base-ui--accordion-target="panel"]');
+            const trigger = item.querySelector('[data-reactic--base-ui--accordion-target="trigger"]');
+            const panel = item.querySelector('[data-reactic--base-ui--accordion-target="panel"]');
 
             // Update item state
             item.dataset.state = isOpen ? 'open' : 'closed';

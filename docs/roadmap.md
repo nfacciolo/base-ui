@@ -187,3 +187,6 @@ CSS (user-provided)   →  Styling
 - Implement **ARIA attributes** for accessibility
 - Provide **keyboard navigation** where applicable
 - Keep components **composable** and **flexible**
+
+
+/home/n1colas/Reactic/Avell/avell-unofficial-control-center/venv/bin/aucc -c green -b 4

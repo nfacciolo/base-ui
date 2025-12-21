@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi\Component\Accordion;
+namespace Reactic\BaseUi\Component\Accordion;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'BaseUI:AccordionPanel', template: '@SymfonyBaseUi/components/BaseUI/Accordion/AccordionPanel.html.twig')]
+#[AsTwigComponent(name: 'BaseUI:AccordionPanel', template: '@BaseUi/components/BaseUI/Accordion/AccordionPanel.html.twig')]
 class AccordionPanel
 {
     /**
@@ -27,7 +27,7 @@ class AccordionPanel
         return [
             'data-slot' => 'accordion-panel',
             'data-state' => 'closed',
-            'data-reactic--symfony-base-ui--accordion-target' => 'panel',
+            'data-reactic--base-ui--accordion-target' => 'panel',
         ];
     }
 }

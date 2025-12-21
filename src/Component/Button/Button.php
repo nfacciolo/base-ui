@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi\Component\Button;
+namespace Reactic\BaseUi\Component\Button;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'BaseUI:Button', template: '@SymfonyBaseUi/components/BaseUI/Button/Button.html.twig')]
+#[AsTwigComponent(name: 'BaseUI:Button', template: '@BaseUi/components/BaseUI/Button/Button.html.twig')]
 class Button
 {
     public bool $disabled = false;

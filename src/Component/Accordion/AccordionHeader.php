@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi\Component\Accordion;
+namespace Reactic\BaseUi\Component\Accordion;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'BaseUI:AccordionHeader', template: '@SymfonyBaseUi/components/BaseUI/Accordion/AccordionHeader.html.twig')]
+#[AsTwigComponent(name: 'BaseUI:AccordionHeader', template: '@BaseUi/components/BaseUI/Accordion/AccordionHeader.html.twig')]
 class AccordionHeader
 {
     public string $level = '3';

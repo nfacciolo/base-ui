@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi\Component\Separator;
+namespace Reactic\BaseUi\Component\Separator;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'BaseUI:Separator', template: '@SymfonyBaseUi/components/BaseUI/Separator/Separator.html.twig')]
+#[AsTwigComponent(name: 'BaseUI:Separator', template: '@BaseUi/components/BaseUI/Separator/Separator.html.twig')]
 class Separator
 {
     public string $orientation = 'horizontal';

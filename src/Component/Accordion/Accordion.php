@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi\Component\Accordion;
+namespace Reactic\BaseUi\Component\Accordion;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'BaseUI:Accordion', template: '@SymfonyBaseUi/components/BaseUI/Accordion/Accordion.html.twig')]
+#[AsTwigComponent(name: 'BaseUI:Accordion', template: '@BaseUi/components/BaseUI/Accordion/Accordion.html.twig')]
 class Accordion
 {
     public bool $multiple = false;
@@ -40,15 +40,15 @@ class Accordion
     public function getControllerAttributes(): array
     {
         $attributes = [
-            'data-controller' => 'reactic--symfony-base-ui--accordion',
+            'data-controller' => 'reactic--base-ui--accordion',
         ];
 
         if ($this->multiple) {
-            $attributes['data-reactic--symfony-base-ui--accordion-multiple-value'] = 'true';
+            $attributes['data-reactic--base-ui--accordion-multiple-value'] = 'true';
         }
 
         if ($this->defaultValue !== null) {
-            $attributes['data-reactic--symfony-base-ui--accordion-default-value-value'] = $this->defaultValue;
+            $attributes['data-reactic--base-ui--accordion-default-value-value'] = $this->defaultValue;
         }
 
         return $attributes;

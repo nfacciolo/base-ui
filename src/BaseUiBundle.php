@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi;
+namespace Reactic\BaseUi;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -10,23 +10,23 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 use function dirname;
 
-final class SymfonyBaseUiBundle extends AbstractBundle
+final class BaseUiBundle extends AbstractBundle
 {
     public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
     {
-        // Namespace Twig => @SymfonyBaseUi
+        // Namespace Twig => @BaseUi
         $viewsPath = dirname(__DIR__).'/templates';
 
         $container->extension('twig', [
             'paths' => [
-                $viewsPath => 'SymfonyBaseUi',
+                $viewsPath => 'BaseUi',
             ],
         ]);
 
         // TwigComponent: namespace PHP => dossier template
         $container->extension('twig_component', [
             'defaults' => [
-                'Reactic\\SymfonyBaseUi\\Component\\' => '@SymfonyBaseUi/components',
+                'Reactic\\BaseUi\\Component\\' => '@BaseUi/components',
             ],
         ]);
     }

@@ -1,5 +1,5 @@
 {
-  "name": "@reactic/symfony-base-ui",
+  "name": "@reactic/base-ui",
   "version": "1.0.0",
   "description": "A headless component library for Symfony and Twig",
   "symfony": {

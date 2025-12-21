@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Reactic\SymfonyBaseUi\Component\Accordion;
+namespace Reactic\BaseUi\Component\Accordion;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent(name: 'BaseUI:AccordionItem', template: '@SymfonyBaseUi/components/BaseUI/Accordion/AccordionItem.html.twig')]
+#[AsTwigComponent(name: 'BaseUI:AccordionItem', template: '@BaseUi/components/BaseUI/Accordion/AccordionItem.html.twig')]
 class AccordionItem
 {
     public string $value;
@@ -29,7 +29,7 @@ class AccordionItem
             'data-slot' => 'accordion-item',
             'data-state' => 'closed',
             'data-disabled' => $this->disabled ? 'true' : 'false',
-            'data-reactic--symfony-base-ui--accordion-target' => 'item',
+            'data-reactic--base-ui--accordion-target' => 'item',
             'data-value' => $this->value,
         ];
     }

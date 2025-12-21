@@ -11,7 +11,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         ->autowire()
         ->autoconfigure();
 
-    $services->load('Reactic\\SymfonyBaseUi\\Component\\', '../src/Component/')
+    $services->load('Reactic\\BaseUi\\Component\\', '../src/Component/')
         ->autoconfigure();
 };
 
