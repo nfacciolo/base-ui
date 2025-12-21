@@ -89,7 +89,22 @@ Then install the assets:
 npm install
 ```
 
-### 4. Enable the bundle
+### 4. Build assets
+
+Compile your assets using your build tool:
+
+```bash
+# For development with watch mode
+npm run watch
+
+# Or for a one-time build
+npm run build
+
+# Or for production
+npm run build:prod
+```
+
+### 5. Enable the bundle
 
 The bundle should be automatically enabled via Symfony Flex. If not, add it manually:
 
@@ -101,13 +116,16 @@ return [
 ];
 ```
 
-### 5. Install Stimulus controllers (for interactive components)
+### 6. Configure Symfony UX dependencies
 
-```bash
-php bin/console importmap:require @hotwired/stimulus
-```
+This bundle requires **Symfony UX Twig Component** and **Symfony Stimulus Bundle** to work properly.
 
-The Accordion controller will be automatically registered via the bundle's `controllers.json`.
+If you haven't already set them up in your project, please refer to the official documentation:
+
+- **Symfony UX Twig Component**: https://symfony.com/bundles/ux-twig-component/current/index.html
+- **Symfony Stimulus Bundle**: https://symfony.com/bundles/StimulusBundle/current/index.html
+
+Once configured, the Accordion controller will be automatically registered via the bundle's `controllers.json`.
 
 ## Configuration
 
