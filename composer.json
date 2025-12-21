@@ -21,6 +21,8 @@
     },
     "extra": {
         "symfony": {
+            "allow-contrib": true,
+            "require": ">=7.0",
             "controllers": {
                 "baseui--accordion": {
                     "main": "assets/controllers/accordion_controller.js",
@@ -30,6 +32,10 @@
                     "enabled": true
                 }
             }
+        },
+        "thanks": {
+            "name": "reactic/base-ui",
+            "url": "https://github.com/reactic/base-ui"
         }
     }
 }
