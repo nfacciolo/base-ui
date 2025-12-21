@@ -136,6 +136,33 @@ The bundle automatically:
 - Configures Twig Components under the `BaseUI:` prefix
 - Loads Stimulus controllers for interactive components
 
+### Optional: IDE support and template overriding
+
+To enable **better IDE support** and allow **template overriding**, add this configuration to `config/packages/twig_component.yaml`:
+
+```yaml
+twig_component:
+    defaults:
+        # Map component namespace to template path
+        Reactic\BaseUi\Component\: '@BaseUi/components/BaseUI/'
+```
+
+**Benefits:**
+- ✅ **IDE autocomplete** for component templates
+- ✅ **Override templates** by creating files in `templates/bundles/BaseUi/components/BaseUI/`
+- ✅ Better **refactoring support** in your IDE
+
+**Example override:**
+```
+templates/
+└── bundles/
+    └── BaseUi/
+        └── components/
+            └── BaseUI/
+                └── Button/
+                    └── Button.html.twig  # Your custom button template
+```
+
 ## Available Components
 
 ### Button
@@ -248,6 +275,22 @@ A semantic separator/divider component.
 ## Styling Components
 
 All components are **completely unstyled** by default. This gives you full control over the appearance.
+
+### Pre-configured styles (optional)
+
+The bundle includes **optional pre-configured CSS styles** for each component. You can import them on-demand in your JavaScript entrypoint:
+
+```javascript
+// Import styles for specific components
+import '@reactic/base-ui/styles/accordion.css';
+import '@reactic/base-ui/styles/separator.css';
+```
+
+**Available style files:**
+- `@reactic/base-ui/styles/accordion.css` - Basic accordion styling
+- `@reactic/base-ui/styles/separator.css` - Separator/divider styling
+
+These styles provide a **minimal, functional design** that you can use as-is or customize to match your design system.
 
 ### Using CSS Classes
 
