@@ -1,0 +1,260 @@
+{# Link Component Examples #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Component Examples</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .example {
+            margin: 40px 0;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+        }
+
+        .example h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .example p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        /* Base link styles using data attributes */
+        [data-component="link"] {
+            color: #0066cc;
+            transition: color 0.2s, text-decoration 0.2s;
+        }
+
+        [data-component="link"]:hover {
+            color: #0052a3;
+        }
+
+        /* Disabled state */
+        [data-component="link"][data-disabled="true"] {
+            color: #999;
+            cursor: not-allowed;
+            text-decoration: none;
+        }
+
+        /* Active state */
+        [data-component="link"][data-active="true"] {
+            color: #000;
+            font-weight: 600;
+            background: #f0f0f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* External link with icon */
+        [data-component="link"][data-external="true"]::after {
+            content: " ↗";
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        /* Underline control */
+        [data-component="link"][data-underline="always"] {
+            text-decoration: underline;
+        }
+
+        [data-component="link"][data-underline="hover"] {
+            text-decoration: none;
+        }
+
+        [data-component="link"][data-underline="hover"]:hover {
+            text-decoration: underline;
+        }
+
+        [data-component="link"][data-underline="none"] {
+            text-decoration: none;
+        }
+
+        /* Navigation example */
+        .nav-example {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .nav-example [data-component="link"] {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-right: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .nav-example [data-component="link"]:hover {
+            background: #e9ecef;
+        }
+
+        .nav-example [data-component="link"][data-active="true"] {
+            background: #0066cc;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Link Component Examples</h1>
+
+    <div class="example">
+        <h3>1. Basic Link</h3>
+        <p>Default link with underline</p>
+        <twig:BaseUI:Link href="/about">
+            About Us
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>2. External Link</h3>
+        <p>Opens in new tab with security attributes and external icon</p>
+        <twig:BaseUI:Link href="https://example.com" external="true">
+            Visit Example.com
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>3. Disabled Link</h3>
+        <p>Cannot be clicked, shows tooltip on hover</p>
+        <twig:BaseUI:Link
+            href="/premium-feature"
+            disabled="true"
+            title="Upgrade to access this feature"
+        >
+            Premium Feature (Disabled)
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>4. Active Link</h3>
+        <p>Represents current page, announced to screen readers</p>
+        <twig:BaseUI:Link href="/dashboard" active="true">
+            Dashboard (Current Page)
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>5. Underline Variations</h3>
+        <p>Different underline behaviors</p>
+        <div style="display: flex; gap: 20px; flex-direction: column;">
+            <div>
+                <strong>Always:</strong>
+                <twig:BaseUI:Link href="/page" underline="always">
+                    Always Underlined
+                </twig:BaseUI:Link>
+            </div>
+            <div>
+                <strong>Hover:</strong>
+                <twig:BaseUI:Link href="/page" underline="hover">
+                    Underlined on Hover
+                </twig:BaseUI:Link>
+            </div>
+            <div>
+                <strong>None:</strong>
+                <twig:BaseUI:Link href="/page" underline="none">
+                    No Underline
+                </twig:BaseUI:Link>
+            </div>
+        </div>
+    </div>
+
+    <div class="example">
+        <h3>6. Download Link</h3>
+        <p>Forces file download with custom filename</p>
+        <twig:BaseUI:Link href="/files/report.pdf" download="Q4-Report.pdf">
+            Download Q4 Report
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>7. Navigation Menu</h3>
+        <p>Links with active state styling</p>
+        <nav class="nav-example">
+            <twig:BaseUI:Link href="/dashboard" active="true">
+                Dashboard
+            </twig:BaseUI:Link>
+            <twig:BaseUI:Link href="/products">
+                Products
+            </twig:BaseUI:Link>
+            <twig:BaseUI:Link href="/orders">
+                Orders
+            </twig:BaseUI:Link>
+            <twig:BaseUI:Link href="/settings">
+                Settings
+            </twig:BaseUI:Link>
+        </nav>
+    </div>
+
+    <div class="example">
+        <h3>8. Custom Classes</h3>
+        <p>Link with custom styling classes</p>
+        <twig:BaseUI:Link
+            href="/contact"
+            class="custom-link"
+            style="background: #28a745; color: white; padding: 10px 20px; border-radius: 4px; text-decoration: none; display: inline-block;"
+        >
+            Contact Us (Custom Styled)
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>9. Multiple States Combined</h3>
+        <p>External link that's also disabled</p>
+        <twig:BaseUI:Link
+            href="https://premium.example.com"
+            external="true"
+            disabled="true"
+            title="Upgrade required to access"
+        >
+            Premium External Resource
+        </twig:BaseUI:Link>
+    </div>
+
+    <div class="example">
+        <h3>10. Link with Title (Tooltip)</h3>
+        <p>Hover to see tooltip</p>
+        <twig:BaseUI:Link
+            href="/help"
+            title="Get help and support"
+        >
+            Help Center
+        </twig:BaseUI:Link>
+    </div>
+
+    <hr style="margin: 40px 0;">
+
+    <h2>Data Attributes Inspection</h2>
+    <p>Open DevTools and inspect these links to see the data-attributes:</p>
+    <ul>
+        <li>
+            <twig:BaseUI:Link href="/test">Basic</twig:BaseUI:Link>
+            - Should have: data-component="link", data-disabled="false", data-external="false", data-active="false", data-underline="always"
+        </li>
+        <li>
+            <twig:BaseUI:Link href="https://test.com" external="true">External</twig:BaseUI:Link>
+            - Should have: data-external="true"
+        </li>
+        <li>
+            <twig:BaseUI:Link href="/test" disabled="true">Disabled</twig:BaseUI:Link>
+            - Should have: data-disabled="true", aria-disabled="true"
+        </li>
+        <li>
+            <twig:BaseUI:Link href="/test" active="true">Active</twig:BaseUI:Link>
+            - Should have: data-active="true", aria-current="page"
+        </li>
+    </ul>
+</body>
+</html>

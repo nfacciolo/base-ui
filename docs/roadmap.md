@@ -120,7 +120,7 @@ Toggle switch for binary states (on/off).
 - Disabled state
 - Keyboard navigation (Space to toggle)
 - ARIA switch role
-- Form integration (hidden input)
+- Doctrine integration (hidden input)
 
 **Inspired by:**
 - Base UI: https://base-ui.com/react/components/switch

@@ -1,0 +1,17 @@
+<a
+    {% for attr, value in this.linkAttributes %}
+        {{ attr }}{% if value != '' %}="{{ value }}"{% endif %}
+    {% endfor %}
+    {% for attr, value in this.ariaAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% if this.shouldPreventNavigation %}
+        onclick="event.preventDefault(); return false;"
+    {% endif %}
+    {{ attributes }}
+>
+    {% block content %}{{ this.href }}{% endblock %}
+</a>
