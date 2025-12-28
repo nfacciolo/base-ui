@@ -156,6 +156,71 @@ Add the controllers to your `assets/controllers.json` (or `assets/admin/controll
 
 **Note:** You can enable only the controllers you need. For example, if you only use the Button component (which doesn't require a controller), you don't need to register any controllers.
 
+### Alternative: Using AssetMapper
+
+If you're using **Symfony AssetMapper** instead of Webpack Encore, you need to manually configure the Stimulus controllers.
+
+#### 1. Add controllers to your importmap
+
+Add the following to your `importmap.php`:
+
+```php
+// importmap.php
+return [
+    // ... other imports
+
+    '@reactic/base-ui/accordion' => [
+        'path' => 'vendor/reactic/base-ui/assets/controllers/accordion_controller.js',
+    ],
+    '@reactic/base-ui/link' => [
+        'path' => 'vendor/reactic/base-ui/assets/controllers/link_controller.js',
+    ],
+];
+```
+
+#### 2. Register controllers in your Stimulus app
+
+Import and register the controllers in your main JavaScript file:
+
+```javascript
+// assets/app.js
+import { Application } from '@hotwired/stimulus';
+
+// Import Base UI controllers
+import AccordionController from '@reactic/base-ui/accordion';
+import LinkController from '@reactic/base-ui/link';
+
+// Start Stimulus
+const app = Application.start();
+
+// Register Base UI controllers
+app.register('reactic--base-ui--accordion', AccordionController);
+app.register('reactic--base-ui--link', LinkController);
+```
+
+**Important:** Use the exact controller names (`reactic--base-ui--accordion`, `reactic--base-ui--link`) to match the `data-controller` attributes in the templates.
+
+#### 3. Import CSS (optional)
+
+If you want to use the optional pre-configured styles:
+
+```javascript
+// assets/app.js
+import 'vendor/reactic/base-ui/assets/styles/accordion.css';
+import 'vendor/reactic/base-ui/assets/components/Link/link.css';
+```
+
+Or add them directly in your `importmap.php`:
+
+```php
+'@reactic/base-ui/styles/accordion' => [
+    'path' => 'vendor/reactic/base-ui/assets/styles/accordion.css',
+],
+'@reactic/base-ui/components/link' => [
+    'path' => 'vendor/reactic/base-ui/assets/components/Link/link.css',
+],
+```
+
 ## Configuration
 
 No configuration is required! The bundle works out of the box.
