@@ -2,6 +2,34 @@
 
 A navigation link component with built-in support for external links, disabled states, active states, and accessibility features.
 
+## Setup
+
+### Stimulus Controller Registration
+
+The Link component requires a Stimulus controller for interactive disabled state handling. Add it to your `assets/controllers.json`:
+
+```json
+{
+  "controllers": {
+    "@reactic/base-ui": {
+      "link": {
+        "enabled": true,
+        "fetch": "eager",
+        "webpackMode": "eager"
+      }
+    }
+  }
+}
+```
+
+After adding the configuration, rebuild your assets:
+
+```bash
+npm run build
+# or
+npm run dev
+```
+
 ## Anatomy
 
 ```twig
@@ -74,7 +102,17 @@ Links can be disabled to prevent navigation, similar to disabled buttons:
 - Features requiring prerequisites
 
 **Technical implementation:**
-Disabled links use `aria-disabled="true"` and `preventDefault()` on clicks, maintaining keyboard focusability for accessibility while preventing navigation.
+Disabled links use a modern, standards-compliant Stimulus controller approach:
+- Sets `aria-disabled="true"` for screen readers
+- Sets `tabindex="-1"` to remove from keyboard navigation
+- Uses CSS `pointer-events: none` to prevent mouse clicks
+- Stimulus controller provides programmatic prevention (click + keyboard)
+- Maintains original `href` for better accessibility
+
+**Setup automatique:**
+Le composant Link utilise un Stimulus controller qui est automatiquement enregistré via Symfony UX. Aucune configuration manuelle n'est nécessaire.
+
+Si vous utilisez Webpack Encore, le controller sera chargé automatiquement lors de la compilation des assets.
 
 ### Active Links
 
@@ -348,6 +386,29 @@ Automatically applied based on props:
 - Any JavaScript-driven interaction
 
 **Rule of thumb:** If pressing the back button should undo the action, use a Button. If the back button should return to the previous page, use a Link.
+
+## Implementation Details
+
+### Why Not `javascript:void(0)`?
+
+You might wonder why we don't use `href="javascript:void(0)"` for disabled links. Here's why:
+
+**❌ Problems with `javascript:` URLs:**
+- **CSP (Content Security Policy)**: Blocked by modern security policies
+- **SEO**: Flagged as bad practice by search engines
+- **Accessibility**: Can cause issues with screen readers
+- **Standards**: Discouraged by W3C and modern web standards
+- **Security**: Opens potential XSS attack vectors
+
+**✅ Our Recommended Approach:**
+- Maintains original `href` for semantic meaning
+- Uses `aria-disabled` for assistive technologies
+- Removes from tab order with `tabindex="-1"`
+- Prevents clicks via CSS `pointer-events: none`
+- JavaScript fallback for edge cases
+- Fully compliant with WCAG 2.1 and modern standards
+
+This approach provides the best accessibility, security, and standards compliance.
 
 ## Best Practices
 

@@ -55,18 +55,45 @@ class Link
     }
 
     /**
+     * Get Stimulus controller data attributes
+     *
+     * Provides controller registration and values for Stimulus integration.
+     * Follows the pattern established by the Accordion component.
+     *
+     * @return array<string, string> Controller attributes
+     */
+    public function getControllerAttributes(): array
+    {
+        $attributes = [
+            'data-controller' => 'reactic--base-ui--link',
+        ];
+
+        // Pass disabled state to controller (only when true to minimize DOM)
+        if ($this->disabled) {
+            $attributes['data-reactic--base-ui--link-disabled-value'] = 'true';
+        }
+
+        // Define event actions for click and keyboard navigation
+        $attributes['data-action'] = 'click->reactic--base-ui--link#handleClick keydown->reactic--base-ui--link#handleKeydown';
+
+        return $attributes;
+    }
+
+    /**
      * Get link-specific HTML attributes
      */
     public function getLinkAttributes(): array
     {
         $attributes = [];
 
-        // Add href if not disabled
-        if (!$this->disabled && $this->href !== '') {
+        // Always add href for accessibility
+        if ($this->href !== '') {
             $attributes['href'] = $this->href;
-        } elseif ($this->disabled) {
-            // Disabled links should still have href for accessibility, but will be prevented via JS
-            $attributes['href'] = $this->href;
+        }
+
+        // Remove from tab order when disabled
+        if ($this->disabled) {
+            $attributes['tabindex'] = '-1';
         }
 
         // Handle external links

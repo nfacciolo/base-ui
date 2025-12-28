@@ -8,9 +8,9 @@
     {% for attr, value in this.dataAttributes %}
         {{ attr }}="{{ value }}"
     {% endfor %}
-    {% if this.shouldPreventNavigation %}
-        onclick="event.preventDefault(); return false;"
-    {% endif %}
+    {% for attr, value in this.controllerAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
     {{ attributes }}
 >
     {% block content %}{{ this.href }}{% endblock %}

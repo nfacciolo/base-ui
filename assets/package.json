@@ -9,6 +9,12 @@
         "webpackMode": "eager",
         "fetch": "eager",
         "enabled": true
+      },
+      "link": {
+        "main": "controllers/link_controller.js",
+        "webpackMode": "eager",
+        "fetch": "eager",
+        "enabled": true
       }
     }
   },

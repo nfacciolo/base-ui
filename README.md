@@ -127,7 +127,9 @@ If you haven't already set them up in your project, please refer to the official
 
 ### 7. Register Stimulus controllers
 
-Add the Accordion controller to your `assets/controllers.json` (or `assets/admin/controllers.json` for admin-only):
+Some components require Stimulus controllers for interactive functionality. You can enable only the controllers you need.
+
+Add the controllers to your `assets/controllers.json` (or `assets/admin/controllers.json` for admin-only):
 
 ```json
 {
@@ -137,13 +139,22 @@ Add the Accordion controller to your `assets/controllers.json` (or `assets/admin
         "enabled": true,
         "fetch": "eager",
         "webpackMode": "eager"
+      },
+      "link": {
+        "enabled": true,
+        "fetch": "eager",
+        "webpackMode": "eager"
       }
     }
   }
 }
 ```
 
-This registers the Accordion's Stimulus controller for interactive functionality.
+**Available controllers:**
+- `accordion` - Required for Accordion component interactive behavior
+- `link` - Required for Link component disabled state handling
+
+**Note:** You can enable only the controllers you need. For example, if you only use the Button component (which doesn't require a controller), you don't need to register any controllers.
 
 ## Configuration
 
@@ -182,6 +193,11 @@ templates/
 ```
 
 ## Available Components
+
+- **Button** - Flexible button component with disabled and focus states
+- **Link** - Navigation link with disabled states, external links, and active page indication
+- **Accordion** - Collapsible accordion with keyboard navigation
+- **Separator** - Semantic divider component
 
 ### Button
 
@@ -276,6 +292,53 @@ A collapsible accordion component with full keyboard navigation and ARIA support
 </twig:BaseUI:Accordion>
 ```
 
+### Link
+
+A fully accessible navigation link component with support for disabled states, external links, and active page indication.
+
+**Props:**
+- `href` (string, required): The destination URL
+- `external` (bool): External link (adds `target="_blank"` and security attributes)
+- `disabled` (bool): Disable the link and prevent navigation
+- `active` (bool): Mark as current page (adds `aria-current="page"`)
+- `underline` (string): Underline control (`always`, `hover`, `none`)
+- `target` (string): Where to open the link
+- `download` (string|bool): Force download with optional filename
+- `rel` (string): Link relationship
+- `title` (string): Tooltip text
+
+**Example:**
+
+```twig
+{# Basic link #}
+<twig:BaseUI:Link href="/about">About Us</twig:BaseUI:Link>
+
+{# External link (opens in new tab with security) #}
+<twig:BaseUI:Link href="https://example.com" external="true">
+    Visit Example
+</twig:BaseUI:Link>
+
+{# Disabled link #}
+<twig:BaseUI:Link href="/premium" disabled="true" title="Upgrade required">
+    Premium Feature
+</twig:BaseUI:Link>
+
+{# Active link (current page) #}
+<twig:BaseUI:Link href="/dashboard" active="true">
+    Dashboard
+</twig:BaseUI:Link>
+
+{# With custom styling #}
+<twig:BaseUI:Link
+    href="/contact"
+    class="text-blue-600 hover:text-blue-800 underline"
+>
+    Contact
+</twig:BaseUI:Link>
+```
+
+**Requires Stimulus controller** - See [Setup](#7-register-stimulus-controllers) section above.
+
 ### Separator
 
 A semantic separator/divider component.
@@ -302,11 +365,13 @@ The bundle includes **optional pre-configured CSS styles** for each component. Y
 // Import styles for specific components
 import '@reactic/base-ui/styles/accordion.css';
 import '@reactic/base-ui/styles/separator.css';
+import '@reactic/base-ui/components/Link/link.css';
 ```
 
 **Available style files:**
 - `@reactic/base-ui/styles/accordion.css` - Basic accordion styling
 - `@reactic/base-ui/styles/separator.css` - Separator/divider styling
+- `@reactic/base-ui/components/Link/link.css` - Link component styling (disabled states, external links, etc.)
 
 These styles provide a **minimal, functional design** that you can use as-is or customize to match your design system.
 
@@ -386,7 +451,10 @@ Use the `attributes` object to pass any HTML attribute:
 bundle/base-ui/
 ├── assets/
 │   ├── controllers/          # Stimulus controllers
-│   │   └── accordion_controller.js
+│   │   ├── accordion_controller.js
+│   │   └── link_controller.js
+│   ├── components/Link/     # Link component assets
+│   │   └── link.css
 │   └── styles/              # Optional CSS examples
 │       ├── accordion.css
 │       └── separator.css
@@ -397,6 +465,7 @@ bundle/base-ui/
 │   └── Component/           # PHP component classes
 │       ├── Accordion/
 │       ├── Button/
+│       ├── Link/
 │       └── Separator/
 ├── templates/
 │   ├── components/BaseUI/   # Twig templates
