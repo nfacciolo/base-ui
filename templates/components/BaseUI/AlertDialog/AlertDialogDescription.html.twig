@@ -1,0 +1,9 @@
+<p
+    id="{{ this.id }}"
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</p>

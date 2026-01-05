@@ -1,0 +1,15 @@
+<button
+    type="button"
+    id="{{ this.id }}"
+    {% for attr, value in this.ariaAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    data-action="click->reactic--base-ui--alert-dialog#open"
+    {% if this.disabled %}disabled{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</button>

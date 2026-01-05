@@ -1,0 +1,16 @@
+<button
+    type="{{ this.buttonType }}"
+    {% if this.hasFormAction %}
+        formaction="{{ this.formAction }}"
+        formmethod="{{ this.formMethod }}"
+    {% endif %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.actionAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</button>

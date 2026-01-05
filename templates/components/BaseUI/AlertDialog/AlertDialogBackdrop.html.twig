@@ -1,0 +1,12 @@
+<div
+    {% for attr, value in this.ariaAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.actionAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {{ attributes }}
+></div>
