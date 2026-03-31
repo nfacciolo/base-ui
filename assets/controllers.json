@@ -12,6 +12,12 @@
                 "webpackMode": "eager",
                 "fetch": "eager",
                 "enabled": true
+            },
+            "dialog": {
+                "main": "controllers/dialog_controller.js",
+                "webpackMode": "eager",
+                "fetch": "eager",
+                "enabled": true
             }
         }
     },

@@ -1,0 +1,18 @@
+<button
+    {% for attr, value in this.buttonAttributes %}
+        {{ attr }}{% if value != '' %}="{{ value }}"{% endif %}
+    {% endfor %}
+    {% for attr, value in this.ariaAttributes %}
+        {{ attr }}="{{ value }}"
+    {% endfor %}
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}{% if value != '' %}="{{ value }}"{% endif %}
+    {% endfor %}
+    {{ attributes }}
+>
+    {% block content %}
+        {% if this.isIconOnly %}
+            &times;
+        {% endif %}
+    {% endblock %}
+</button>

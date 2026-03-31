@@ -1,0 +1,8 @@
+<dialog
+    {% for attr, value in this.dataAttributes %}
+        {{ attr }}{% if value != '' %}="{{ value }}"{% endif %}
+    {% endfor %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</dialog>

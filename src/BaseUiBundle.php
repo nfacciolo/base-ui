@@ -15,7 +15,7 @@ final class BaseUiBundle extends AbstractBundle
     public function prependExtension(ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         // Namespace Twig => @BaseUi
-        $viewsPath = dirname(__DIR__).'/templates';
+        $viewsPath = dirname(__DIR__) . '/templates';
 
         $container->extension('twig', [
             'paths' => [

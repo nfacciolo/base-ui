@@ -1,9 +1,7 @@
 <div
+    id="{{ this.id }}"
     {% for attr, value in this.dataAttributes %}
-        {{ attr }}="{{ value }}"
-    {% endfor %}
-    {% for attr, value in this.controllerAttributes %}
-        {{ attr }}="{{ value }}"
+        {{ attr }}{% if value != '' %}="{{ value }}"{% endif %}
     {% endfor %}
     {{ attributes }}
 >

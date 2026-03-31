@@ -1,9 +1,8 @@
-<{{ this.headingTag }}
-    id="{{ this.id }}"
+<div
     {% for attr, value in this.dataAttributes %}
-        {{ attr }}="{{ value }}"
+        {{ attr }}{% if value != '' %}="{{ value }}"{% endif %}
     {% endfor %}
     {{ attributes }}
 >
     {% block content %}{% endblock %}
-</{{ this.headingTag }}>
+</div>

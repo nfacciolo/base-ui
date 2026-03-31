@@ -10,14 +10,14 @@
         "fetch": "eager",
         "enabled": true
       },
-      "alert-dialog": {
-        "main": "controllers/alert_dialog_controller.js",
+      "link": {
+        "main": "controllers/link_controller.js",
         "webpackMode": "eager",
         "fetch": "eager",
         "enabled": true
       },
-      "link": {
-        "main": "controllers/link_controller.js",
+      "dialog": {
+        "main": "controllers/dialog_controller.js",
         "webpackMode": "eager",
         "fetch": "eager",
         "enabled": true
